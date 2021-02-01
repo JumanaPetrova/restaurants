@@ -1,8 +1,6 @@
 package com.example.restaurantapp.ui
 
-import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import com.example.restaurantapp.R
 import com.example.restaurantapp.ui.base.BaseActivity
 import com.example.restaurantapp.ui.base.utils.IntentHelper
@@ -16,7 +14,6 @@ class SplashScreenActivity : BaseActivity() {
         const val SPLASH_WAIT_SECONDS = 2L
     }
 
-    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         setFullScreen()
 
