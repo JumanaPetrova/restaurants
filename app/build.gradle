@@ -1,0 +1,99 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.restaurantapp"
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    sourceSets {
+        main
+                {
+                    res.srcDirs =
+                            [
+                                    'src/main/res',
+                                    'src/main/res/base',
+                                    'src/main/res/main',
+                                    'src/main/res/restaurants',
+                                    'src/main/res/hits',
+                                    'src/main/res/reviews'
+                            ]
+                }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "REST_END_POINT", "\"https://front-task.chibbistest.ru/api/v1/\""
+        }
+        debug{
+            buildConfigField "String", "REST_END_POINT", "\"https://front-task.chibbistest.ru/api/v1/\""
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.7.2"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+    //okhttp3
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+
+    //Paging
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+    //Images
+    implementation "com.github.bumptech.glide:glide:$glideVer"
+    kapt "com.github.bumptech.glide:compiler:$glideVer"
+
+    //RX
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
+
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVer"
+
+    //Dagger
+    implementation 'com.google.dagger:dagger:2.30.1'
+    implementation "com.google.dagger:dagger-android:2.23.1"
+    implementation 'com.google.dagger:dagger-android-support:2.23.1'
+    kapt 'com.google.dagger:dagger-compiler:2.30.1'
+    kapt 'com.google.dagger:dagger-android-processor:2.23.1'
+
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

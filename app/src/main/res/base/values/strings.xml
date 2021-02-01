@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RestaurantApp</string>
+    <string name="title_review">Отзывы</string>
+    <string name="title_restaurant">Рестораны</string>
+    <string name="title_hits">Хиты</string>
+    <string name="review_title_pattern">%1$s о ресторане %2$s</string>
+    <string name="take_btn">Взять</string>
+    <string name="price_pattern">%d ₽</string>
+    <string name="rating_pattern">%s%%</string>
+</resources>
